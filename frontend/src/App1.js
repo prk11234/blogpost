@@ -14,7 +14,6 @@ class App1 extends React.Component {
   }
   componentDidMount()
   {
-    console.log("array users",this.array_users)
     if(localStorage.getItem("MEME_LOGIN_EMAIL")!==null){
     if(localStorage.getItem("MEME_LOGIN_EMAIL").length>0)
     this.props.history.push({pathname:"/login_success",state:{email:localStorage.getItem("MEME_LOGIN_EMAIL")}})
@@ -23,7 +22,6 @@ class App1 extends React.Component {
   }
  SuccessSignin()
   {
-    console.log("array users",this.array_users)
     if(this.array_users.length>0)
     {
       localStorage.setItem("MEME_LOGIN_EMAIL",this.email_1)
@@ -71,7 +69,6 @@ class App1 extends React.Component {
         response.json().then((data)=> {
           if(data.length>0)
           {
-          console.log("Data recieved",data)
           this.array_users=data 
           }
           else{

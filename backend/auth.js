@@ -3,7 +3,6 @@ const multer=require('multer');
 const cors = require("cors");
 const app = express();
 const bodyParser = require('body-parser');
-const photo_upload=require("./upload.js")
 app.use(cors());
 const fileStorageEngine = multer.diskStorage({
   destination: (req, file, cb) => {
@@ -119,6 +118,14 @@ app.post("/create_account",(req, res) => {
           res.send({s1:"success"})             
         });
     }); 
+   /* app.get("/",async (req,res)=>{
+      client.connect(err => {
+        const collection = client.db("abc").collection("abc11"); 
+        collection.updateMany({},{$set:{photo_publish: []}})  
+        collection.updateMany({},{$set:{photo_publish_request: []}}) 
+      })
+    })
+    */
     app.post("/provideupdateaccess",async (req, res) => { 
       client.connect(err => {
           const collection = client.db("abc").collection("abc11");

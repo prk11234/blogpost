@@ -6,7 +6,6 @@ import { BrowserRouter as Router,Route } from 'react-router-dom';
 import App1 from "./App1.js";
 import login from "./components/login.js"
 import SignUp from "./components/SignUp.js"
-import postproperty from "./components/postproperty.js"
 
 class App extends React.Component {
 
@@ -18,7 +17,6 @@ class App extends React.Component {
       <Route path="/" component={App1} exact />
       <Route path="/login_success" component={login}/>
       <Route path="/account_create" component={SignUp}/>
-      <Route path="/postproperty" component={postproperty}/>
       </div>
       </Router>
   );

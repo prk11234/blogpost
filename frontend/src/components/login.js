@@ -1,5 +1,4 @@
 import React from "react";
-import "./login.css"
 
 export default class login extends React.Component {
   constructor(props) {
@@ -38,14 +37,12 @@ export default class login extends React.Component {
       response.json().then((data)=> {
      for(let i=0;i<data.length;i++)
      {
-      console.log("All value",data[i])
       if(data[i].photo_publish.length>0)
       {
         this.setState({total_images:this.state.total_images.concat(data[i].photo_publish)})
       }
       if(data[i].photo_publish_request.length>0)
       {
-        console.log("requested array value",data[i].photo_publish_request)
         this.setState({total_request_images:this.state.total_request_images.concat(data[i].photo_publish_request)})
       }
      }
@@ -110,9 +107,7 @@ export default class login extends React.Component {
       headers:{"Content-Type": "application/json"},
       body:JSON.stringify({email:localStorage.getItem("MEME_LOGIN_EMAIL")})
     }).then((response)=> {
-    console.log("response",response)
     response.json().then(data=>{
-      console.log("data",data)
       this.setState({login_account_details:data})
     })
     })
@@ -199,9 +194,7 @@ export default class login extends React.Component {
         headers:{"Content-Type": "application/json"},
         body:JSON.stringify({email:localStorage.getItem("MEME_LOGIN_EMAIL")})
       }).then((response)=> {
-      console.log("response",response)
       response.json().then(data=>{
-        console.log("data",data)
         this.setState({total_request_images_admin:data[0].photo_publish_request})
       })
       })
@@ -240,7 +233,6 @@ export default class login extends React.Component {
       headers:{"Content-Type": "application/json"},
       body:JSON.stringify({email:e.email,url:e.url,data:e.data})
     }).then((response)=> {
-      console.log("delete reponse",response);
       if(response.status==200)
       {
           this.get_all_images();
@@ -260,8 +252,6 @@ export default class login extends React.Component {
         admin_write:false,
         admin_save:false,
         admin_update:true})
-        console.log("update",this.state.total_update_images_admin)
-
   }
   displayblock()
   {
