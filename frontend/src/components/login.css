@@ -1,0 +1,4 @@
+.login.super_admin:hover + .login.super_admin_privilege {
+    display: block;
+    color: red;
+  }
